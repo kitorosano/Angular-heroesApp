@@ -2,15 +2,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Heroe } from '../interfaces/heroes.interface';
 
 @Pipe({
-  name: 'imagen',
+  name: 'imagen'
 })
 export class ImagenPipe implements PipeTransform {
-  transform(value: Heroe): string {
-    // if value.alt_img exists then return value.alt_img else if value.id exists then return correspondind image, if not return 'assets/img/no-image.png'
-    return value.alt_img
-      ? value.alt_img
-      : value.id
-      ? `assets/heroes/${value.id}.jpg`
-      : 'assets/no-image.png';
+  transform(heroe: Heroe): string {
+    console.log('pipe procesado');
+
+    // if heroe.alt_img exists then return heroe.alt_img else if heroe.id exists then return correspondind image, if not return 'assets/img/no-image.png'
+    return heroe.alt_img ? heroe.alt_img : 'assets/no-image.png';
   }
 }
